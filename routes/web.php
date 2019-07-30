@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/get-json', 'HomeController@getJson')->name('get-json');
+
+Route::get('/data-chart', 'HomeController@dataChart')->name('data-chart');
+
+Route::get('/random-chart', 'HomeController@randomChart')->name('random-chart');
+
+

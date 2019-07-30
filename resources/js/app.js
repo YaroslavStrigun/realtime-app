@@ -20,6 +20,12 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('prop-component', require('./components/PropComponent.vue').default);
+Vue.component('ajax-component', require('./components/AjaxComponent.vue').default);
+Vue.component('line-chart-component', require('./components/LineChartComponent.vue').default);
+Vue.component('pie-chart-component', require('./components/PieChartComponent.vue').default);
+Vue.component('random-component', require('./components/LineRandomComponent.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
