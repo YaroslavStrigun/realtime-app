@@ -25,4 +25,13 @@ Route::get('/data-chart', 'HomeController@dataChart')->name('data-chart');
 
 Route::get('/random-chart', 'HomeController@randomChart')->name('random-chart');
 
+Route::get('/new-event', 'HomeController@newEvent')->name('new-event');
+
+Route::get('/send-message', 'HomeController@sendMessage');
+
+Route::get('/send-private-message', 'HomeController@sendPrivateMessage');
+
+
+
+
 

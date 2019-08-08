@@ -25,6 +25,9 @@ Vue.component('ajax-component', require('./components/AjaxComponent.vue').defaul
 Vue.component('line-chart-component', require('./components/LineChartComponent.vue').default);
 Vue.component('pie-chart-component', require('./components/PieChartComponent.vue').default);
 Vue.component('random-component', require('./components/LineRandomComponent.vue').default);
+Vue.component('socket-component', require('./components/SocketComponent.vue').default);
+Vue.component('chat-component', require('./components/SocketChatComponent.vue').default);
+Vue.component('private-chat-component', require('./components/SocketPrivateChatComponent.vue').default);
 
 
 /**

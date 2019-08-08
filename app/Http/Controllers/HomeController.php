@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewEvent;
+use App\Events\NewMessage;
+use App\Events\PrivateMessage;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -79,5 +82,40 @@ class HomeController extends Controller
             ]]
         ]);
 
+    }
+
+    public function newEvent(Request $request)
+    {
+        $result = [
+            'labels' => ['jan', 'feb', 'march', 'oct'],
+            'datasets' => array([
+                'label' => 'Sales',
+                'backgroundColor' => '#F26202',
+                'data' => [15000, 50000, 10000, 30000]
+            ])
+        ];
+
+        if ($request->has('label')) {
+            $result['labels'][] = $request->input('label');
+            $result['datasets'][0]['data'][] = $request->input('sale');
+
+            if ($request->has('realtime') && filter_var($request->input('realtime'), FILTER_VALIDATE_BOOLEAN)) {
+                event(new NewEvent($result));
+            }
+        }
+
+        return $result;
+    }
+
+    public function sendMessage(Request $request)
+    {
+        event(new NewMessage($request->input('message')));
+    }
+
+    public function sendPrivateMessage(Request $request)
+    {
+        event(new PrivateMessage($request->all()));
+
+        return $request->all();
     }
 }
